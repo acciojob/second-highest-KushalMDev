@@ -9,17 +9,34 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			
-		}
+    //Write your code here
+    if(arr.length==1 || arr.length==0)return -Infinity
+    let maxFirst
+    for(let val of arr){
+        if(maxFirst==undefined || val>maxFirst){
+            maxFirst=val
+        }
+    }
+    // console.log(maxFirst);
+    let maxSecond
+    for(let val of arr){
+        if(val!=maxFirst && (maxSecond==undefined || val>maxSecond)){
+            maxSecond=val
+        }
+    }
+    if(maxSecond==maxFirst || maxSecond==undefined)return -Infinity
+    // console.log(maxSecond);
+    return maxSecond
+    
+}
 
 		function Main() {
-			var n = prompt("Enter the number of elements");
+			// var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
 				arr[i] = prompt("Enter element " + (i+1));
 			}
-			alert(secondHighest(arr));
+			// alert(secondHighest(arr));
 		}
 		Main();
 	</script>
